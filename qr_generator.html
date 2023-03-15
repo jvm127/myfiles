@@ -23,17 +23,19 @@
 </style>
 </head>
 <body>
+  <input type="text" id="urlInput" placeholder="Enter a web address" style="display: block; margin: 20px auto; width: 80%; max-width: 500px; padding: 5px;">
   <div id="qrCode"></div>
   <button id="generateBtn">Generate QR Code</button>
 
   <script>
     const qrCodeContainer = document.getElementById('qrCode');
     const generateBtn = document.getElementById('generateBtn');
+    const urlInput = document.getElementById('urlInput');
 
     function generateQRCode() {
       qrCodeContainer.innerHTML = '';
 
-      const data = 'https://www.example.com';
+      const data = urlInput.value || 'https://www.example.com';
       const qrCode = new QRCode(qrCodeContainer, {
         text: data,
         width: 128,
